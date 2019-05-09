@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/v4db?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: myUsername
+    password: myPassword
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: v4db
+      username: myUsername
+      password: myPassword
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: myPassword
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+  kafka:
+    bootstrap-servers: mycorp.com.cn:9092
+    consumer:
+      group-id: statisticalDataGenerator
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      acks: all
+      retries: 0
+      client-id: statisticalDataGenerator
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  mail:
+    host: smtp.qq.com
+    username: 123@123.com
+    password: mptymfrweknebgif
+
+mybatis:
+  type-aliases-package: cn.mycorp.www.domain
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  config: classpath:logback.xml
+
+server:
+  port: 8080
+  contextPath: /v4
+host-name: prd9

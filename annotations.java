@@ -15,3 +15,6 @@
 @ComponentScan 
 //tells Spring to look for other components, configurations, and services in the hello package, allowing it to find the controllers.
 
+//springboot配置文件：application.properties or application.yml
+
+@Value("${host-name}") //获取配置文件中的参数
