@@ -92,3 +92,10 @@ console.log("[柴油]co/co2： ", ArrToFloat(b.slice(62,66)))
 console.log("[柴油]hc/co2： ", ArrToFloat(b.slice(66,70)))
 console.log("[柴油]no/co2： ", ArrToFloat(b.slice(70,74)))
 console.log("[柴油]不透光度： ", ArrToFloat(b.slice(74,78)))
+
+var target = {};
+var p = new Proxy(target, {});
+
+p.a = 37; // operation forwarded to the target
+
+console.log(target.a, target == p, p.a, typeof(p), typeof(target)); // 37 false 37 'object' 'object'. The operation has been properly forwarded
